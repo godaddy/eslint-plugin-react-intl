@@ -1,0 +1,41 @@
+{
+  "name": "@godaddy/eslint-plugin-react-intl",
+  "version": "1.0.0",
+  "description": "Eslint utils to add checks for react-intl usages.",
+  "main": "lib",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:godaddy/eslint-plugin-react-intl.git"
+  },
+  "author": "GoDaddy Operating Company, LLC",
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "eslintplugin",
+    "react",
+    "react-intl"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint lib",
+    "lint:fix": "npm run lint -- --fix",
+    "pretest": "npm run lint",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "test:coverage": "jest --coverage"
+  },
+  "dependencies": {
+    "requireindex": "^1.2.0"
+  },
+  "peerDependencies": {
+    "eslint": "^4.0.0 || ^5.0.0 || ^6.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-godaddy": "^3.1.0",
+    "eslint-plugin-jest": "^22.15.0",
+    "eslint-plugin-json": "^1.4.0",
+    "eslint-plugin-mocha": "^6.0.0",
+    "jest": "^24.8.0"
+  }
+}

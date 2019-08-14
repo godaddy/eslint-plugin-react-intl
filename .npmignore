@@ -1,0 +1,9 @@
+.idea
+.DS_Store
+node_modules
+coverage
+
+tests
+*.spec.js
+jest.config.js
+locales
