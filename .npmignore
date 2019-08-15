@@ -7,3 +7,4 @@ tests
 *.spec.js
 jest.config.js
 locales
+.circleci
