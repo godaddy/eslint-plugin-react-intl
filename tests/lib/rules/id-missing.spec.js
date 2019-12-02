@@ -4,6 +4,7 @@ const defaultSettings = require('../../../lib');
 
 const parserOptions = {
   ecmaVersion: 6,
+  sourceType: 'module',
   ecmaFeatures: {
     jsx: true
   }
@@ -57,6 +58,18 @@ ruleTester.run('id-missing', rule, {
     },
     {
       code: "defineMessages({ msg1: { id: `in_a_${bogus}` }, msg2: { id: 'in_b_example' }})",
+      settings
+    },
+    {
+      code: 'function foo({ id }) { return `Hello ${ id }.`; }\nmodule.exports = { foo };',
+      settings
+    },
+    {
+      code: 'export function foo({ id }) { return `Hello ${ id }.`; }',
+      settings
+    },
+    {
+      code: 'function foo({ id }) { return `Hello ${ id }.`; }\nexport { foo };',
       settings
     }
   ],
