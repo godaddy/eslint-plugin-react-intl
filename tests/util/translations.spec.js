@@ -15,16 +15,18 @@ describe('Util/Translations', function () {
     });
 
     it('returns all the translation keys', function () {
-      const keys = translations.getIntlIds(context);
-      expect(keys).toBeInstanceOf(Array);
-      expect(keys.length).toEqual(4);
+      const idsByFile = translations.getIntlIds(context);
+      expect(idsByFile).toBeInstanceOf(Object);
+      expect(idsByFile['tests/mocks/locale_a.json']).toEqual(['in_a_example', 'in_a_another_example', 'in_both_example']);
+      expect(idsByFile['tests/mocks/locale_b.json']).toEqual(['in_b_example', 'in_b_another_example', 'in_both_example']);
     });
 
     it('returns all the translation keys with project root', function () {
       context.settings.projectRoot = path.join(__dirname, '..', '..');
-      const keys = translations.getIntlIds(context);
-      expect(keys).toBeInstanceOf(Array);
-      expect(keys.length).toEqual(4);
+      const idsByFile = translations.getIntlIds(context);
+      expect(idsByFile).toBeInstanceOf(Object);
+      expect(idsByFile['tests/mocks/locale_a.json']).toEqual(['in_a_example', 'in_a_another_example', 'in_both_example']);
+      expect(idsByFile['tests/mocks/locale_b.json']).toEqual(['in_b_example', 'in_b_another_example', 'in_both_example']);
     });
 
     it('throws exception if localeFiles are not provided', function () {

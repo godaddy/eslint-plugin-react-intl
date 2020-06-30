@@ -5,6 +5,8 @@ to determine if they (or template literal pattern) can be found in the locale fi
 
 By default, the localeFiles is set to `['locales/en-US.json']`, but can be changed in the eslint config settings.
 
+If you pass multiple localeFiles this rule will check ids are present in all files.
+
 ## Rule Details
 
 Given an example locale file whose content looks like:

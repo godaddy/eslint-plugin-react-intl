@@ -25,39 +25,23 @@ ruleTester.run('id-missing', rule, {
       settings: defaultLocales
     },
     {
-      code: "<FormattedMessage id='in_a_example' />",
+      code: "<FormattedMessage id='in_both_example' />",
       settings
     },
     {
-      code: "<FormattedMessage id='in_b_example' />",
+      code: '<FormattedMessage id={`in_both_${bogus}`} />',
       settings
     },
     {
-      code: '<FormattedMessage id={`in_a_${bogus}`} />',
+      code: "formatMessage({ id: 'in_both_example' })",
       settings
     },
     {
-      code: '<FormattedMessage id={`in_b_${bogus}`} />',
+      code: 'formatMessage({ id: `in_both_${bogus}` })',
       settings
     },
     {
-      code: "formatMessage({ id: 'in_a_example' })",
-      settings
-    },
-    {
-      code: "formatMessage({ id: 'in_b_example' })",
-      settings
-    },
-    {
-      code: 'formatMessage({ id: `in_a_${bogus}` })',
-      settings
-    },
-    {
-      code: 'formatMessage({ id: `in_b_${bogus}` })',
-      settings
-    },
-    {
-      code: "defineMessages({ msg1: { id: `in_a_${bogus}` }, msg2: { id: 'in_b_example' }})",
+      code: "defineMessages({ msg1: { id: `in_both_${bogus}` }, msg2: { id: 'in_both_example' }})",
       settings
     },
     {
@@ -78,42 +62,73 @@ ruleTester.run('id-missing', rule, {
     {
       code: "<FormattedMessage id='in_a_missing_default_example' />",
       settings: defaultLocales,
-      errors: ['Missing id: in_a_missing_default_example']
+      errors: ['Missing id: in_a_missing_default_example from file locales/en-US.json']
     },
     {
       code: "<FormattedMessage id='in_a_missing_example' />",
       settings,
-      errors: ['Missing id: in_a_missing_example']
+      errors: ['Missing id: in_a_missing_example from files tests/mocks/locale_a.json, tests/mocks/locale_b.json']
+    },
+    {
+      code: "<FormattedMessage id='in_a_example' />",
+      settings,
+      errors: ['Missing id: in_a_example from file tests/mocks/locale_b.json']
     },
     {
       code: "<FormattedMessage id='bad_missing_example' />",
       settings,
-      errors: ['Missing id: bad_missing_example']
+      errors: ['Missing id: bad_missing_example from files tests/mocks/locale_a.json, tests/mocks/locale_b.json']
     },
     {
-      code: '<FormattedMessage id={`in_b_${bogus}_missing`} />',
+      code: '<FormattedMessage id={`in_both_${bogus}_missing`} />',
       settings,
-      errors: ['Missing id pattern: in_b_*_missing']
+      errors: ['Missing id pattern: in_both_*_missing from files tests/mocks/locale_a.json, tests/mocks/locale_b.json']
+    },
+    {
+      code: '<FormattedMessage id={`in_b_${bogus}`} />',
+      settings,
+      errors: ['Missing id pattern: in_b_* from file tests/mocks/locale_a.json']
     },
     {
       code: "formatMessage({ id: 'in_a_missing_example' })",
       settings,
-      errors: ['Missing id: in_a_missing_example']
+      errors: ['Missing id: in_a_missing_example from files tests/mocks/locale_a.json, tests/mocks/locale_b.json']
+    },
+    {
+      code: "formatMessage({ id: 'in_a_example' })",
+      settings,
+      errors: ['Missing id: in_a_example from file tests/mocks/locale_b.json']
     },
     {
       code: "formatMessage({ id: 'bad_missing_example' })",
       settings,
-      errors: ['Missing id: bad_missing_example']
+      errors: ['Missing id: bad_missing_example from files tests/mocks/locale_a.json, tests/mocks/locale_b.json']
     },
     {
-      code: 'formatMessage({ id: `in_b_${bogus}_missing` })',
+      code: 'formatMessage({ id: `in_both_${bogus}_missing` })',
       settings,
-      errors: ['Missing id pattern: in_b_*_missing']
+      errors: ['Missing id pattern: in_both_*_missing from files tests/mocks/locale_a.json, tests/mocks/locale_b.json']
     },
     {
-      code: "defineMessages({ msg1: { id: `in_a_${bogus}_missing` }, msg2: { id: 'bad_missing_example' }})",
+      code: 'formatMessage({ id: `in_a_${bogus}` })',
       settings,
-      errors: ['Missing id pattern: in_a_*_missing', 'Missing id: bad_missing_example']
+      errors: ['Missing id pattern: in_a_* from file tests/mocks/locale_b.json']
+    },
+    {
+      code: "defineMessages({ msg1: { id: `in_both_${bogus}_missing` }, msg2: { id: 'bad_missing_example' }})",
+      settings,
+      errors: [
+        'Missing id pattern: in_both_*_missing from files tests/mocks/locale_a.json, tests/mocks/locale_b.json',
+        'Missing id: bad_missing_example from files tests/mocks/locale_a.json, tests/mocks/locale_b.json'
+      ]
+    },
+    {
+      code: "defineMessages({ msg1: { id: `in_a_${bogus}` }, msg2: { id: 'in_b_example' }, msg3: { id: 'in_both_example' }})",
+      settings,
+      errors: [
+        'Missing id pattern: in_a_* from file tests/mocks/locale_b.json',
+        'Missing id: in_b_example from file tests/mocks/locale_a.json'
+      ]
     }
   ]
 });
