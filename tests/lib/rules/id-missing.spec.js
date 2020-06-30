@@ -111,6 +111,21 @@ ruleTester.run('id-missing', rule, {
       errors: ['Missing id pattern: in_b_*_missing']
     },
     {
+      code: "intl.formatMessage({ id: 'in_a_missing_example' })",
+      settings,
+      errors: ['Missing id: in_a_missing_example']
+    },
+    {
+      code: "intl.formatMessage({ id: 'bad_missing_example' })",
+      settings,
+      errors: ['Missing id: bad_missing_example']
+    },
+    {
+      code: 'intl.formatMessage({ id: `in_b_${bogus}_missing` })',
+      settings,
+      errors: ['Missing id pattern: in_b_*_missing']
+    },
+    {
       code: "defineMessages({ msg1: { id: `in_a_${bogus}_missing` }, msg2: { id: 'bad_missing_example' }})",
       settings,
       errors: ['Missing id pattern: in_a_*_missing', 'Missing id: bad_missing_example']
