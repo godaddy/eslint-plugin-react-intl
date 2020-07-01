@@ -23,6 +23,10 @@ formatMessage({ id:'missing_example' })
 defineMessages({ msg: { id: 'missing_example' }})
 ```
 
+```js
+defineMessage({ id:'missing_example' })
+```
+
 Examples of **correct** code for this rule:
 
 ```js
@@ -59,6 +63,18 @@ defineMessages({ msg: { id: `in_${someKey}_label` }})
 
 ```js
 defineMessages({ msg: { id: 'out_example' }})
+```
+
+```js
+defineMessage({ id: 'in_example' })
+```
+
+```js
+defineMessage({ id: `in_${someKey}_label` })
+```
+
+```js
+defineMessage({ id: 'out_example' })
 ```
 
 ### Options
