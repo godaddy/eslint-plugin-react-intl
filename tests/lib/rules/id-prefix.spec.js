@@ -65,6 +65,18 @@ ruleTester.run('id-prefix', rule, {
     {
       code: "defineMessages({ msg1: { id:`in_a_${bogus}` }, msg2: { id: 'in_b_example' }})",
       options
+    },
+    {
+      code: 'defineMessage({ id:`in_a_${bogus}` })',
+      options
+    },
+    {
+      code: 'defineMessage({ id:`in_a_ignored_${bogus}` })',
+      options
+    },
+    {
+      code: "defineMessage({ id: 'in_b_example' })",
+      options
     }
   ],
 
@@ -93,6 +105,16 @@ ruleTester.run('id-prefix', rule, {
       code: "defineMessages({ msg1: { id: `bad_${bogus}_missing`}, msg2: { id: 'bad_missing_example' }})",
       options,
       errors: ['Invalid id prefix: bad_*_missing', 'Invalid id prefix: bad_missing_example']
+    },
+    {
+      code: 'defineMessage({ id: `bad_${bogus}_missing`})',
+      options,
+      errors: ['Invalid id prefix: bad_*_missing']
+    },
+    {
+      code: "defineMessage({ id: 'bad_missing_example' })",
+      options,
+      errors: ['Invalid id prefix: bad_missing_example']
     }
   ]
 });
