@@ -18,6 +18,10 @@ formatMessage({ id: 'missing_example', defaultMessage: 'Redundant message text' 
 defineMessages({ msg: { id: 'missing_example', defaultMessage: 'Redundant message text' }})
 ```
 
+```js
+defineMessage({ id: 'missing_example', defaultMessage: 'Redundant message text' })
+```
+
 Examples of **correct** code for this rule:
 
 ```js
@@ -30,6 +34,10 @@ formatMessage({ id: 'in_example' })
 
 ```js
 defineMessages({ msg: { id: 'in_example' }})
+```
+
+```js
+defineMessage({ id: 'in_example' })
 ```
 
 ### Options

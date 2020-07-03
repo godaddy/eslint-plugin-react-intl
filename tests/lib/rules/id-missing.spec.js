@@ -57,6 +57,22 @@ ruleTester.run('id-missing', rule, {
       settings
     },
     {
+      code: "defineMessage({ id: 'in_a_example' })",
+      settings
+    },
+    {
+      code: "defineMessage({ id: 'in_b_example' })",
+      settings
+    },
+    {
+      code: 'defineMessage({ id: `in_a_${bogus}` })',
+      settings
+    },
+    {
+      code: 'defineMessage({ id: `in_b_${bogus}` })',
+      settings
+    },
+    {
       code: "defineMessages({ msg1: { id: `in_a_${bogus}` }, msg2: { id: 'in_b_example' }})",
       settings
     },
@@ -122,6 +138,21 @@ ruleTester.run('id-missing', rule, {
     },
     {
       code: 'intl.formatMessage({ id: `in_b_${bogus}_missing` })',
+      settings,
+      errors: ['Missing id pattern: in_b_*_missing']
+    },
+    {
+      code: "defineMessage({ id: 'in_a_missing_example' })",
+      settings,
+      errors: ['Missing id: in_a_missing_example']
+    },
+    {
+      code: "defineMessage({ id: 'bad_missing_example' })",
+      settings,
+      errors: ['Missing id: bad_missing_example']
+    },
+    {
+      code: 'defineMessage({ id: `in_b_${bogus}_missing` })',
       settings,
       errors: ['Missing id pattern: in_b_*_missing']
     },

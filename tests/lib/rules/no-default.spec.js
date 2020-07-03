@@ -20,6 +20,9 @@ ruleTester.run('no-default', rule, {
     },
     {
       code: "defineMessages({ msg1: { id:'in_example' }, msg2: { id:'in_example' }})"
+    },
+    {
+      code: "defineMessage({ id:'in_example' })"
     }
   ],
 
@@ -35,6 +38,10 @@ ruleTester.run('no-default', rule, {
     {
       code: "defineMessages({ msg1: { id: 'in_ex', defaultMessage: 'example'}, msg2: { id: 'in_ex', defaultMessage: 'example' }})",
       errors: ['Do not use defaultMessage', 'Do not use defaultMessage']
+    },
+    {
+      code: "defineMessage({ id: 'in_ex', defaultMessage: 'example' })",
+      errors: ['Do not use defaultMessage']
     }
   ]
 });
