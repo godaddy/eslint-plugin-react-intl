@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "eslint": "^6.1.0",
-    "eslint-config-godaddy": "^3.1.0",
+    "eslint-config-godaddy": "^4.0.0",
     "eslint-plugin-jest": "^22.15.0",
     "eslint-plugin-json": "^1.4.0",
     "eslint-plugin-mocha": "^6.0.0",
