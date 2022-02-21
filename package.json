@@ -1,6 +1,6 @@
 {
   "name": "@godaddy/eslint-plugin-react-intl",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Eslint utils to add checks for react-intl usages.",
   "main": "lib",
   "repository": {
