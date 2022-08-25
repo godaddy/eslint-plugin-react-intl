@@ -1,5 +1,13 @@
 # CHANGELOG
 
+### 1.1.2
+
+- Upgrade dependencies
+
+### 1.1.1
+
+- Relax peerDeps for more recent eslint versions ([#13])
+
 ### 1.1.0
 
 - Add support for `defineMessage` ([#9])
@@ -18,3 +26,4 @@
 [#3]: https://github.com/godaddy/eslint-plugin-react-intl/pull/3
 [#8]: https://github.com/godaddy/eslint-plugin-react-intl/pull/3
 [#9]: https://github.com/godaddy/eslint-plugin-react-intl/pull/3
+[#13]: https://github.com/godaddy/eslint-plugin-react-intl/pull/3
