@@ -1,5 +1,8 @@
 # CHANGELOG
 
+### 1.2.0
+- update jest, remove obsolete configuration ([#23])
+
 ### 1.1.2
 
 - Upgrade dependencies
@@ -27,3 +30,4 @@
 [#8]: https://github.com/godaddy/eslint-plugin-react-intl/pull/3
 [#9]: https://github.com/godaddy/eslint-plugin-react-intl/pull/3
 [#13]: https://github.com/godaddy/eslint-plugin-react-intl/pull/3
+[#23]:https://github.com/godaddy/eslint-plugin-react-intl/pull/23
